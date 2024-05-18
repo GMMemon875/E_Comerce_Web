@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import StoreCard from "./componants/StoreCard";
+import Header from "./componants/Header";
 
 const App = () => {
   const [product, setProduct] = useState([
     {
-      URL: "",
+      URL: "https://currenwatches.com.pk/cdn/shop/products/S7d2e9b2df5eb48be959dad1f4655b5e5S_1445x.jpg?v=1713332874",
       name: "Product 1",
       description: "Description 1",
       category: "Shoes",
@@ -63,7 +64,8 @@ const App = () => {
 
   return (
     <div>
-      {/* <StoreCard product={product} /> */}
+      <Header />
+
       <StoreCard product={product} />
     </div>
   );
