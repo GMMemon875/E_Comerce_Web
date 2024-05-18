@@ -12,49 +12,49 @@ const App = () => {
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN5cUyn2oJfkFE9zPwVxka_QP82-GK2_pXlCtNUwaukg&s",
       name: "Product 2",
       description: "Description 2",
       category: "Shoes",
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://cdn.thewirecutter.com/wp-content/media/2023/09/running-shoes-2048px-5946.jpg?auto=webp&quality=75&width=1024",
       name: "Product 3",
       description: "Description 3",
       category: "Shoes",
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-8xvwo7Krpy9T-Fsa_tfTUD4PbhRR5MdSl8wsOQvRg&s",
       name: "Product 4",
       description: "Description 4",
       category: "Shoes",
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://almasjewellers.com.pk/wp-content/uploads/2022/11/Gold-Bracelet-Design-009.jpg",
       name: "Product 5",
       description: "Description 5",
       category: "Shoes",
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo5je0qQMVZ1VgXk2z1IO0r00C46A3gFCVpjnGJBrxyQ&s",
       name: "Product 6",
       description: "Description 6",
       category: "Shoes",
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1HBT7vwQFY4j6JriUEmylmjSY7JifcBLQApuM2pwv-g&s",
       name: "Product 7",
       description: "Description 7",
       category: "Shoes",
       price: "999",
     },
     {
-      URL: "",
+      URL: "https://www.shutterstock.com/image-photo/new-apple-macbook-pro-leptop-260nw-1879162108.jpg",
       name: "Product 8",
       description: "Description 8",
       category: "Shoes",
@@ -62,11 +62,17 @@ const App = () => {
     },
   ]);
 
+  const [cart, setcart] = useState([]);
+
+  const AddtoCart = (data) => {
+    // console.log(...data );
+    setcart([...cart, data]);
+    console.log(...cart, data);
+  };
   return (
     <div>
       <Header />
-
-      <StoreCard product={product} />
+      <StoreCard product={product} AddtoCart={AddtoCart} />
     </div>
   );
 };
