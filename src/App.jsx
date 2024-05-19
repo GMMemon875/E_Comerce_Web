@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import StoreCard from "./componants/StoreCard";
 import Header from "./componants/Header";
+import Cart from "./componants/Cart";
 
 const App = () => {
   const [product, setProduct] = useState([
     {
       URL: "https://currenwatches.com.pk/cdn/shop/products/S7d2e9b2df5eb48be959dad1f4655b5e5S_1445x.jpg?v=1713332874",
-      name: "Product 1",
-      description: "Description 1",
-      category: "Shoes",
+      name: "Watch",
+      description: "barnd watch ",
+      category: "Watch",
       price: "999",
     },
     {
       URL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN5cUyn2oJfkFE9zPwVxka_QP82-GK2_pXlCtNUwaukg&s",
-      name: "Product 2",
-      description: "Description 2",
+      name: "Shoes",
+      description: "barnd",
       category: "Shoes",
       price: "999",
     },
@@ -66,13 +67,23 @@ const App = () => {
 
   const AddtoCart = (data) => {
     // console.log(...data );
-    setcart([...cart, data]);
-    console.log(...cart, data);
+    setcart([...cart, { ...data, quauntity: "1" }]);
+    // console.log(cart);
   };
+  const [showCart, setshowcart] = useState(false);
+
+  const showhandle = (value) => {
+    setshowcart(value);
+  };
+
   return (
     <div>
-      <Header />
-      <StoreCard product={product} AddtoCart={AddtoCart} />
+      <Header count={cart.length} showhandle={showhandle} />
+      {showCart ? (
+        <Cart cart={cart} />
+      ) : (
+        <StoreCard product={product} AddtoCart={AddtoCart} />
+      )}
     </div>
   );
 };
